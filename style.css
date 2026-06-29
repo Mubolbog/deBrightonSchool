@@ -14,11 +14,10 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #1a3a5c 0%, #0f2847 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .nav-container {
@@ -27,31 +26,127 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 5%;
+  gap: 20px;
+  position: relative;
+}
+
+.logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.logo-brand:hover {
+  opacity: 0.9;
+}
+
+.logo {
+  flex-shrink: 0;
 }
 
 .logo img {
-  height: 50px;
+  height: 55px;
   width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.school-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.school-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.school-motto {
+  font-size: 0.75rem;
+  color: #d4d4d4;
+  margin: 0;
+  font-weight: 400;
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background: none;
+  color: #ffd700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hamburger:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.hamburger:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 3px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 35px;
   margin: 0;
   padding: 0;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: 600;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.nav-links a i {
+  color: #ffd700;
+  font-size: 1rem;
 }
 
 .nav-links a:hover {
-  color: #2e8b78;
+  color: #ffd700;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffd700;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* HERO */
@@ -69,6 +164,10 @@ body {
   background: rgba(0, 0, 0, 0.7);
   padding: 2rem;
   border-radius: 10px;
+}
+
+.mobile-nav-copy {
+  display: none;
 }
 
 .overlay h1 {
@@ -304,6 +403,95 @@ section {
   margin-bottom: 0;
 }
 
+@media (max-width: 600px) {
+
+  .hero,
+  .overlay {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .nav-container {
+    padding: 0 4%;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .logo-brand {
+    gap: 8px;
+    flex: 1 1 auto;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .school-info {
+    display: none;
+  }
+
+  .mobile-nav-copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding: 6px 10px;
+    /* border-radius: 999px; */
+    background: rgba(255, 255, 255, 0.1);
+    /* border: 1px solid rgba(255, 215, 0, 0.25); */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    flex: 1 1 auto;
+  }
+
+  .mobile-nav-copy h2 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffd700;
+    letter-spacing: 0.03em;
+  }
+
+  .mobile-nav-copy p {
+    margin: 0;
+    font-size: 0.6rem;
+    color: #eaf2ff;
+    font-weight: 500;
+  }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0 4px;
+    background: rgba(10, 32, 54, 0.97);
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 0;
+  }
+
+  .about_us {
+    display: none;
+  }
+}
+
 span {
   font-weight: 600;
   color: #ffffff;
@@ -343,6 +531,27 @@ span {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(180px, 1fr));
   }
+
+  .footer-column {
+    /* text-align: center; */
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .school-info {
+    display: none;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -355,6 +564,101 @@ span {
   .overlay h1 {
     font-size: 2rem;
   }
+
+  .nav-container {
+    gap: 0;
+    padding: 12px 5%;
+    position: relative;
+  }
+
+  .school-info {
+    display: none;
+  }
+
+  .logo img {
+    height: 48px;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #0f2847 0%, #1a3a5c 100%);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-top: 2px solid #ffd700;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 15px 5%;
+    justify-content: flex-start;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links a i {
+    width: 1.25rem;
+    text-align: center;
+    color: #ffd700;
+    font-size: 1.1rem;
+  }
+
+  .site-footer {
+    padding: 30px 5%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+  }
+
+  .footer-column {
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+    background: #f5f5f52e;
+    border-radius: 15px;
+    border: 2px solid #ddd;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 }
 
 
@@ -365,7 +669,8 @@ span {
 
   .about .mission,
   .about .vision,
-  .about .values {
+  .about .values,
+  .footer-column {
     width: 100%;
   }
 

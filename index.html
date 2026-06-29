@@ -9,6 +9,11 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p3hG0f5JdFvQ+gT2Jr6YQfK4V5YKSqQbsDcitXsmlmPK5tVD+XnM+IKkyB2o0Rb8D0F6fbO7H5bzhcXQ8+uj5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,14 +22,27 @@
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo">
-        <img src="/logo.png" alt="DE-BRIGHTON SCHOOL Logo">
+      <a href="#home" class="logo-brand">
+        <div class="logo">
+          <img src="/bebrightron_logo.jpeg" alt="DE-BRIGHTON SCHOOL Logo">
+        </div>
+        <div class="school-info">
+          <h1 class="school-name">DE-BRIGHTON SCHOOL</h1>
+          <p class="school-motto">The Home of Smart Scholars</p>
+        </div>
+      </a>
+      <div class="mobile-nav-copy" aria-label="School headline">
+        <h2>DE-BRIGHTON SCHOOL</h2>
+        <p>The Home of Smart Scholars.</p>
       </div>
+      <button class="hamburger" aria-expanded="false" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#academics">Academics</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="#academics"><i class="fa-solid fa-graduation-cap"></i> Academics</a></li>
+        <li><a href="#gallery"><i class="fa-solid fa-image"></i> Gallery</a></li>
       </ul>
     </div>
   </nav>
@@ -34,13 +52,13 @@
     <div class="overlay">
       <h1>DE-BRIGHTON SCHOOL</h1>
       <p>The Home of Smart Scholars.</p>
-      <button class="btn">Learn More</button>
+      <!-- <button class="btn">Learn More</button> -->
     </div>
   </header>
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <h2>About Us</h2>
+    <h2 class="about_us">About Us</h2>
     <div class="grid-3">
       <div class="mission">
         <h3>Our Mission</h3>

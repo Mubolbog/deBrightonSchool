@@ -1,10 +1,41 @@
-// Smooth scroll for button
-document.querySelector(".btn").addEventListener("click", () => {
-  window.scrollTo({
-    top: window.innerHeight,
-    behavior: "smooth",
+// Hamburger Menu Toggle
+const hamburgerBtn = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+if (hamburgerBtn && navLinks) {
+  hamburgerBtn.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("active");
+    hamburgerBtn.setAttribute("aria-expanded", isOpen.toString());
   });
-});
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".navbar")) {
+      navLinks.classList.remove("active");
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+// Smooth scroll for button
+const learnMoreBtn = document.querySelector(".btn");
+
+if (learnMoreBtn) {
+  learnMoreBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  });
+}
 
 // Simple fade-in animation on scroll
 const elements = document.querySelectorAll("section");
